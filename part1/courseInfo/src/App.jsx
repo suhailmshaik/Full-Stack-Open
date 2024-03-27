@@ -11,18 +11,27 @@ const App = () => {
     return <h1>{props.course}</h1>;
   };
 
+  const Content = () => {
+    const contents = [
+      { no: exercises1, part: part1 },
+      { no: exercises2, part: part2 },
+      { no: exercises3, part: part3 },
+    ];
+    return (
+      <article>
+        {contents.map((item) => (
+          <p key={item.part}>
+            {item.no} : {item.part}
+          </p>
+        ))}
+      </article>
+    );
+  };
+
   return (
     <div>
       <Header course={course} />
-      <p>
-        {part1} {exercises1}
-      </p>
-      <p>
-        {part2} {exercises2}
-      </p>
-      <p>
-        {part3} {exercises3}
-      </p>
+      <Content />
       <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
     </div>
   );
